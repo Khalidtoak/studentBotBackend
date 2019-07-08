@@ -17,7 +17,7 @@ public class SwaggerConfig {
 	  // Describe your apis
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("ChristianDating App API documentations")
+                .title("Student Bot Api documentations")
                 .description("Created by Khalid Toak")
                 .version("1.0-SNAPSHOT")
                 .build();

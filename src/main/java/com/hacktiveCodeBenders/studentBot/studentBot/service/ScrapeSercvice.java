@@ -49,17 +49,16 @@ public class ScrapeSercvice {
 		try {
 			document = Jsoup.connect("https://toolbox.google.com/datasetsearch/search?query=" + query
 					+ "&docid=fcRwvT45i24JFz8lAAAAAA%3D%3D").get();
-			Elements titles = document.select("h1");
+			//Elements titles = document.select("h1");
 			Elements linkElements = document.select("a[href]");
 			final Logger logger = LoggerFactory.getLogger(TaskController.class);
 			logger.info(linkElements.toString());
-			logger.info(titles.toString());
 			for (int i = 0; i < linkElements.size(); i++) {
-				String link = linkElements.get(i).absUrl("href");
-				if (link.contains("doi.org")) {
-					results.add(new Result(titles.get(i).text(), link));
+				String linkURL = linkElements.get(i).absUrl("href");
+				if (linkURL.contains("doi.org")) {
+					results.add(new Result(linkURL));
 				}
-
+				
 			}
 		} catch (IOException e) {
 
